@@ -1,0 +1,338 @@
+<head>
+	<link rel="stylesheet" href="https://gomelb-dev1.its.unimelb.edu.au/static/global/mspace.css">
+	<link rel="stylesheet" href="https://gomelb-dev1.its.unimelb.edu.au/static/global/w3.css">
+	<style type="text/css">
+		p,td{
+			font-family: Verdana,sans-serif;
+			font-size: 15px;
+			color: #31465C;	
+		}
+
+		h2{
+			font-family: Verdana,sans-serif;
+			font-size: 20px;
+
+		}
+		button{
+
+			font-family: Verdana,sans-serif;
+			font-size: 15px;	
+		}
+		.arrow {
+			width: 2px;
+			height: 200px; /* <- adjust your height as you need it */
+			background: #5880b3;
+			margin: 10px;
+			position: relative;
+			margin-left: 40%
+		}
+
+		.arrow::before,
+		.arrow::after {
+			content: '';
+			position: absolute;
+			left: -8px;
+			width: 0;
+			height: 0;
+			border-left: 9px solid transparent;
+			border-right: 9px solid transparent;
+		}
+
+
+		.arrow::after {
+			bottom: 0;
+			border-top: 15px solid #5880b3;
+		}
+
+		td.listItem{
+
+			border:1px solid #5880b3;padding:10px;  box-shadow: 2px 5px #888888;	
+		}
+		.uom-ui-modal-container {
+			display: none;
+			overflow-x: hidden;
+			overflow-y: auto;
+			position: fixed !important;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.3);
+			z-index: 20;
+			transition: all .5s ease-in-out;
+		}
+
+		.uom-ui-modal-content,
+		.uom-ui-modal-content-large {
+			margin: 2em auto;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			width: 100%;
+			background-color: #fff;
+			background-clip: padding-box;
+			border-radius: 3px;
+		}
+
+		.uom-ui-modal-content {
+			max-width: 500px;
+		}
+
+		.uom-ui-modal-content-large {
+			max-width: 800px;
+		}
+
+		.uom-ui-modal-header {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: start;
+			-ms-flex-align: start;
+			align-items: flex-start;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			padding: 1em;
+			border-bottom: 1px solid #f3f3f3;
+		}
+
+		.uom-ui-modal-body {
+			position: relative;
+			-webkit-box-flex: 1;
+			-ms-flex: 1 1 auto;
+			flex: 1 1 auto;
+			padding: 1rem;
+		}
+
+		.uom-ui-modal-close {
+			float: right;
+			margin: 0 0 0 auto;
+			padding: 0.5em 1em;
+		}
+
+		.uom-ui-modal-header .uom-ui-modal-close {
+			font-size: 1.5rem;
+			margin: 0 0 0 auto;
+			padding: 0.3em .5em;
+		}
+
+
+		.uom-ui-button.uom-primary:hover,
+		.uom-ui-button.uom-primary:focus {
+			background-color: #fff;
+			border-color: #094183;
+			color: #094183;
+			cursor: pointer;
+		}
+		.uom-ui-button.uom-outline:hover,
+		.uom-ui-button.uom-outline:focus {
+			background-color: #094183;
+			color: #fff;
+			cursor: pointer;
+		}
+		.uom-ui-button.uom-primary {
+			background-color: #094183;
+			color: #fff;
+		}
+		.b{
+			cursor: pointer;
+			width: 20%;
+			height: 25%;
+			position: absolute;
+
+		}
+		.b1{
+			left: 40%;
+			top: 0%;
+			background-color: transparent;
+			position: absolute;
+
+		}
+		.b2{
+			left:65%;
+			top:30%;
+			background-color: transparent;
+
+		}
+		.b3{
+			left:62%;
+			top:65%;
+			background-color: transparent;
+
+		}
+
+		.b4{
+			left:20%;
+			top:65%;
+			background-color: transparent;
+
+		}
+		.b5{
+			left:12%;
+			top:30%;
+			background-color: transparent;
+
+		}
+		img{
+
+			width:98%;
+		}
+		.uom-ui-modal-content{
+			margin-top: 20%;
+		}
+		.uom-ui-table {
+			width: 100%;
+			text-align: left;
+			border-collapse: collapse;
+			margin: 1em auto;
+		}
+
+		.uom-ui-table tr {
+			border-bottom: 1px solid #e0e0e0;
+		}
+
+		.uom-ui-table td {
+			padding-bottom: .8% !important;
+			padding-top: .8% !important;
+			padding-left: .8% !important;
+		}
+
+		.uom-ui-table th {
+			padding-bottom: .8% !important;
+			padding-top: .8% !important;
+			padding-left: .8% !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="uom-mspace-container" id="mainpag}e">
+		<div class="w3-row">
+			<div class="w3-col l12 m12 s12">
+				<div style="position: relative;">
+					<div class="uom-ui-modal-trigger" data-target="#modal-1"><p class="b b1"></p></div>
+					<div class="uom-ui-modal-trigger" data-target="#modal-2"><p class="b b2"></p></div>
+					<div class="uom-ui-modal-trigger" data-target="#modal-3"><p class="b b3"></p></div>
+					<div class="uom-ui-modal-trigger" data-target="#modal-4"><p class="b b4"></p></div>
+					<div class="uom-ui-modal-trigger" data-target="#modal-5"><p class="b b5"></p></div>
+
+					<img src="https://gomelb-dev1.its.unimelb.edu.au/canvas-courses/MGMT90274/interactive/image/Fig.3.2.2.png" alt="">
+				</div>
+				<div style="text-align: center;"><p class="uom-mspace-citation"><strong>Figure 3.1</strong> Contracts with risk-sharing elements</p>
+					<p class="uom-mspace-citation"> (Adapted from Simchi-Levi et al., 2008, Chapter 4)</p></div>
+				<div id="modal-1" class="uom-ui-modal-container">
+					<div class="uom-ui-modal-content">
+						<div class="uom-ui-modal-header">
+
+							<button class="uom-ui-button uom-primary uom-ui-modal-close" aria-label="Close modal" data-close="#modal-1">X</button>
+						</div>
+						<div class="uom-ui-modal-body">
+							<p><strong>Buy-back contracts:</strong> seller agrees to buy back any unsold goods at an agreed price if not sold, decreasing the likelihood of out-of-stocks (more than compensating increased supplier risk)</p>
+
+						</div>
+					</div>
+				</div>
+				<div id="modal-2" class="uom-ui-modal-container">
+					<div class="uom-ui-modal-content">
+						<div class="uom-ui-modal-header">
+
+							<button class="uom-ui-button uom-primary uom-ui-modal-close" aria-label="Close modal" data-close="#modal-2">X</button>
+						</div>
+						<div class="uom-ui-modal-body">
+							<p><strong>Revenue sharing contracts: </strong> buyer shares some of the revenue with the seller in return for a discount in the wholesale purchase price</p>
+
+						</div>
+					</div>
+				</div>
+				<div id="modal-3" class="uom-ui-modal-container">
+					<div class="uom-ui-modal-content">
+						<div class="uom-ui-modal-header">
+
+							<button class="uom-ui-button uom-primary uom-ui-modal-close" aria-label="Close modal" data-close="#modal-3">X</button>
+						</div>
+						<div class="uom-ui-modal-body">
+
+							<p><strong>Quantity flexibility contracts:  </strong> supplier will buy back up to a certain amount at full refund (whereas a buy back contract is for supplier to take back all unsold items at a discounted value)</p>
+						</div>
+					</div>
+				</div>
+				<div id="modal-4" class="uom-ui-modal-container">
+					<div class="uom-ui-modal-content">
+						<div class="uom-ui-modal-header">
+
+							<button class="uom-ui-button uom-primary uom-ui-modal-close" aria-label="Close modal" data-close="#modal-4">X</button>
+						</div>
+						<div class="uom-ui-modal-body">
+
+							<p><strong>Sales rebate: </strong> a rebate for all items sold above a certain quantity</p>
+						</div>
+					</div>
+				</div>
+				<div id="modal-5" class="uom-ui-modal-container">
+					<div class="uom-ui-modal-content">
+						<div class="uom-ui-modal-header">
+
+							<button class="uom-ui-button uom-primary uom-ui-modal-close" aria-label="Close modal" data-close="#modal-5">X</button>
+						</div>
+						<div class="uom-ui-modal-body">
+
+							<p><strong>Make to order versus a make to stock contract: </strong> the supplier risk is reduced considerably if only making to order compared than to forecast.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="getheight"></div>
+
+	<script type="text/javascript" src="https://gomelb-dev1.its.unimelb.edu.au/static/global/iframeresize.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script>
+		var cururl= window.location.href;   
+		var subjectCode = cururl.split('/')[5];
+
+		var weekNum ='3';
+		var idx;
+
+		function resizePage() {
+			mspace_resize_iframe(
+				jQuery("#mainpage")[0].getBoundingClientRect().height + 25
+			);
+		}
+		jQuery(document).ready(function () {
+
+
+			resizePage();
+		});
+
+
+
+	</script>
+	<script>
+
+
+
+		jQuery(".uom-ui-modal-trigger").on('click',function() {
+
+			var idx= jQuery(this).data('target');
+			jQuery(idx).css("display","block");
+
+
+		});    
+
+
+		jQuery(".uom-ui-modal-close").on('click',function() {
+
+			var idx= jQuery(this).data('close');
+			jQuery(idx).css("display","none");
+
+
+		});    
+
+	</script>
+</body>
+</html>
